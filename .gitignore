@@ -2,7 +2,8 @@
 node_modules/
 dist/
 .env
-.env.local
+.env.*
+!.env.example
 
 # Java / Maven
 target/
@@ -10,6 +11,7 @@ target/
 *.jar
 *.war
 *.log
+*.pid
 
 # IDE
 .idea/

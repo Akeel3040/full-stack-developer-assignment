@@ -4,7 +4,11 @@ export default function TaskTable({ tasks, loading, error }) {
   }
 
   if (error) {
-    return <div className="state-message error">Error: {error}</div>;
+    return (
+      <div className="state-message error" role="alert">
+        {error}
+      </div>
+    );
   }
 
   if (!tasks || tasks.length === 0) {
@@ -12,7 +16,8 @@ export default function TaskTable({ tasks, loading, error }) {
   }
 
   return (
-    <table className="task-table">
+    <div className="table-scroll" tabIndex="0">
+      <table className="task-table">
       <thead>
         <tr>
           <th>ID</th>
@@ -22,7 +27,7 @@ export default function TaskTable({ tasks, loading, error }) {
           <th>Assignee</th>
         </tr>
       </thead>
-      <tbody>
+        <tbody>
         {tasks.map((task) => (
           <tr key={task.id}>
             <td>{task.id}</td>
@@ -37,7 +42,8 @@ export default function TaskTable({ tasks, loading, error }) {
             <td>{task.assignee || '\u2014'}</td>
           </tr>
         ))}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   );
 }

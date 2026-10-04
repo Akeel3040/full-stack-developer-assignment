@@ -36,6 +36,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.search-control {
+  flex: 1;
+}
+
 .search-input {
   flex: 1;
   padding: 0.5rem 0.75rem;
@@ -64,6 +68,11 @@ body {
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.table-scroll {
+  overflow-x: auto;
+  border-radius: 6px;
 }
 
 .task-table th {
@@ -136,6 +145,18 @@ body {
   background: #ffebee;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .pagination {
   display: flex;
   align-items: center;
@@ -161,4 +182,23 @@ body {
 .pagination button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .search-input,
+  .status-filter {
+    width: 100%;
+  }
+
+  .task-table {
+    min-width: 680px;
+  }
 }
